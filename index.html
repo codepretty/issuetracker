@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Issue Tracker</title>
+  <title>Issue Tracker</title>
 
-	<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" />
-	<link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" />
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app>
-	<div class="main">
-		
-	</div>
+  <div class="main" ng-init="issues=[{ title:'Security bug with header', assignedTo:'Rich Lundeen' },{ title:'broken in ie8', assignedTo:'codepretty' },{ title:'new feature to add animation on load', assignedTo:'codepretty' }]">
+    Search issues: <input type="text" ng-model="searchIssue" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
-	<script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
-	
-	<script src="scripts/main.js"></script>
+    <h2>Issues</h2>
+    <ul>
+      <li ng-repeat="issue in issues | filter:searchIssue">{{ issue.title }} - {{ issue.assignedTo }}</li>
+    </ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
+
+  <script src="scripts/main.js"></script>
 </body>
 </html>
