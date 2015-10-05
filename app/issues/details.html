@@ -1,7 +1,5 @@
 <div>
-  Search issues: <input type="text" ng-model="searchIssue" />
-
-  <h2>Issues (View 2)</h2>
+  <h2>Details please...</h2>
   <ul>
     <li ng-repeat="issue in issues | filter:searchIssue">{{ issue.title }} - {{ issue.assignedTo }}</li>
   </ul>
