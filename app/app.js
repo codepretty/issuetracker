@@ -14,34 +14,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('kanban', {
       url: '/',
-      controller: 'KanbanController',
+      controller: 'kanbanController',
       templateUrl: 'boards/kanban.html'
     })
     .state('details', {
       url: '/details',
-      controller: 'KanbanController',
+      controller: 'kanbanController',
       templateUrl: 'issues/details.html'
     })
     .state('backlog', {
       url: '/backlog',
-      controller: 'KanbanController',
+      controller: 'kanbanController',
       templateUrl: 'boards/backlog.html'
     });
-});
-
-myApp.factory('simpleFactory', function() {
-  var factory = {},
-      issues = [];
-
-  factory.getIssues = function () {
-    return [
-      { title:'Authentication is not working', assignedTo:'Rich Lundeen', state: IssueState.New },
-      { title:'XSS bug on the signup page', assignedTo:'Rich Lundeen', state: IssueState.Working },
-      { title:'broken in ie8', assignedTo:'codepretty', state: IssueState.Working },
-      { title:'new feature to add animation on load', assignedTo:'codepretty', state: IssueState.Design },
-      { title:'Spike: Using MongoDB and Django', assignedTo:'Rich Lundeen', state: IssueState.Complete }
-    ];
-  }
-
-  return factory;
 });

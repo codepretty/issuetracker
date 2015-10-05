@@ -1,3 +1,3 @@
-myApp.controller('KanbanController', function($scope, simpleFactory) {
-  $scope.issues = simpleFactory.getIssues();
+myApp.controller('kanbanController', function($scope, issuesFactory) {
+  $scope.issues = issuesFactory.getIssues();
 });
