@@ -8,7 +8,7 @@
   <title>Issue Tracker</title>
 
   <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" />
-  <link rel="stylesheet" href="styles/main.css">
+  <!-- <link rel="stylesheet" href="styles/main.css"> -->
 </head>
 <body ng-app="myApp">
   <nav>
@@ -17,67 +17,13 @@
     <a href="#/backlog">Backlog</a>
   </nav>
 
-  <div class="main" ng-view>
-  </div>
+  <div class="main" ui-view></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <!-- <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script> -->
 
-  <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
-
-  <script src="scripts/main.js"></script>
-
-  <script>
-    var IssueState = {
-      New: "New",
-      Design: "Design",
-      Working: "Working",
-      Testing: "Testing",
-      Complete: "Complete"
-    };
-
-    var myApp = angular.module('myApp', ['ngRoute']);
-
-    myApp.config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-          controller: 'SimpleController',
-          templateUrl: 'boards/kanban.html'
-        })
-        .when('/details', {
-          controller: 'SimpleController',
-          templateUrl: 'issues/details.html'
-        })
-        .when('/backlog', {
-          controller: 'SimpleController',
-          templateUrl: 'views/backlog.html'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-    });
-
-    myApp.factory('simpleFactory', function() {
-      var factory = {},
-          issues = [];
-
-      factory.getIssues = function () {
-        return [
-          { title:'Authentication is not working', assignedTo:'Rich Lundeen', state: IssueState.New },
-          { title:'XSS bug on the signup page', assignedTo:'Rich Lundeen', state: IssueState.Working },
-          { title:'broken in ie8', assignedTo:'codepretty', state: IssueState.Working },
-          { title:'new feature to add animation on load', assignedTo:'codepretty', state: IssueState.Design },
-          { title:'Spike: Using MongoDB and Django', assignedTo:'Rich Lundeen', state: IssueState.Complete }
-        ];
-      }
-
-      return factory;
-    });
-
-    myApp.controller('SimpleController', function($scope, simpleFactory) {
-      $scope.issues = simpleFactory.getIssues();
-    });
-  </script>
-
+  <script src="app.js"></script>
+  <script src="boards/kanban-controller.js"></script>
 </body>
 </html>
