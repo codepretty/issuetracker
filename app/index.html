@@ -7,21 +7,22 @@
 
   <title>Issue Tracker</title>
 
-  <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
   <!-- <link rel="stylesheet" href="styles/main.css"> -->
 </head>
 <body ng-app="myApp">
-  <nav>
-    <a href="#/">Kanban board</a>
-    <a href="#/details">Details</a>
-    <a href="#/backlog">Backlog</a>
-  </nav>
+  <div class="container-fluid">
+    <nav>
+      <a href="#/">Kanban board</a>
+      <a href="#/details">Details</a>
+      <a href="#/backlog">Backlog</a>
+    </nav>
 
-  <div class="main" ui-view></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-  <!-- <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script> -->
+    <div class="main" ui-view></div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <!-- <script src="//ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script> -->
 
   <script src="app.js"></script>
   <script src="common/issues-factory.js"></script>

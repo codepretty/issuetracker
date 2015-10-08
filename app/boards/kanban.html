@@ -1,6 +1,10 @@
+<div class="alert alert-danger" role="alert" ng-class="(errorMsg) ? '' : 'hidden'">{{ errorMsg }}</div>
+
 <div>
   <h2>Kanban board</h2>
-  <ul>
-    <li ng-repeat="issue in issues">{{ issue.title }} - {{ issue.assignedTo }}</li>
+  <ul role="list" class="list-group">
+    <li role="listitem" class="list-group-item" ng-repeat="issue in issues">{{ issue.title }} - {{ issue.assignedTo }}</li>
   </ul>
 </div>
+
+<div class="alert alert-info" role="alert" ng-class="(informMsg) ? '' : 'hidden'">{{ informMsg }}</div>
