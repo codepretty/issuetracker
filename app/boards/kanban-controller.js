@@ -1,10 +1,10 @@
 myApp.controller('kanbanController', function($scope, issuesFactory) {
   issuesFactory.getIssues()
-    .then(function(issues) {
-      $scope.issues = issues;
+    .then(function(result) {
+      $scope.issues = result.data;
     })
-    .catch(function() {
-      $scope.errorMsg = "Some error";
+    .catch(function(errorMessage) {
+      $scope.errorMsg = errorMessage;
     })
     .finally(function() {
       $scope.informMsg = "Issue loading promise is done!";

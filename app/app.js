@@ -8,23 +8,28 @@ var IssueState = {
 
 var myApp = angular.module('myApp', ['ui.router']);
 
-myApp.config(function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+myApp
+  .config(function($httpProvider) {
+    $httpProvider.defaults.headers.common["X-ZUMO-APPLICATION"] = "OwIaGoXveiClXWOBJiCjtvhLVuEaEJ21";
+    $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+  })
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
 
-  $stateProvider
-    .state('kanban', {
-      url: '/',
-      controller: 'kanbanController',
-      templateUrl: 'boards/kanban.html'
-    })
-    .state('details', {
-      url: '/details',
-      controller: 'kanbanController',
-      templateUrl: 'issues/details.html'
-    })
-    .state('backlog', {
-      url: '/backlog',
-      controller: 'kanbanController',
-      templateUrl: 'boards/backlog.html'
-    });
-});
+    $stateProvider
+      .state('kanban', {
+        url: '/',
+        controller: 'kanbanController',
+        templateUrl: 'boards/kanban.html'
+      })
+      .state('details', {
+        url: '/details',
+        controller: 'kanbanController',
+        templateUrl: 'issues/details.html'
+      })
+      .state('backlog', {
+        url: '/backlog',
+        controller: 'kanbanController',
+        templateUrl: 'boards/backlog.html'
+      });
+  });
