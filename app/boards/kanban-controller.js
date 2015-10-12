@@ -1,6 +1,6 @@
 myApp.controller('kanbanController', function($scope, issuesFactory) {
   var kanban = this;
-
+  kanban
   issuesFactory.getIssues()
     .then(function(result) {
       kanban.issues = result.data;
@@ -13,32 +13,13 @@ myApp.controller('kanbanController', function($scope, issuesFactory) {
     });
 
   kanban.showAddIssueForm = function() {
-    console.log('CLICKED: Add Issue');
+    console.log('CLICKED: Add Issue show form');
 
-    console.log(kanban.title);
-
-    /*var issue = {
-      Title: 'Some title',
-      AssignedTo: 'codepretty',
-      Description: 'There is a new bug found for the header in Firefox',
-      OpenedBy: 'mopey'
-    }
-
-    issuesFactory.addIssue(issue)
-      .then(function(result) {
-        console.log('addIssue Promise is done!')
-        console.dir(result);
-      })
-      .catch(function(errorMessage) {
-        kanban.errorMsg = errorMessage;
-      })
-      .finally(function() {
-        kanban.informMsg = "Issue added!";
-      });*/
+    
   }
 
   kanban.AddIssue = function() {
-    console.log('CLICKED: Add Issue form submit');
+    console.log('SUBMIT: Add Issue form submit');
 
     console.log(kanban.title);
 
