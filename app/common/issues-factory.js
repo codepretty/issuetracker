@@ -26,5 +26,10 @@ myApp
         });*/
     }
 
+    factory.addIssue = function (issue) {
+      var data = JSON.stringify(issue);
+      return $http.post(ENDPOINT_URL + "/Issue", data);
+    }
+
     return factory;
   });

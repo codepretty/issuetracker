@@ -1,12 +1,64 @@
 myApp.controller('kanbanController', function($scope, issuesFactory) {
+  var kanban = this;
+
   issuesFactory.getIssues()
     .then(function(result) {
-      $scope.issues = result.data;
+      kanban.issues = result.data;
     })
     .catch(function(errorMessage) {
-      $scope.errorMsg = errorMessage;
+      kanban.errorMsg = errorMessage;
     })
     .finally(function() {
-      $scope.informMsg = "Issue loading promise is done!";
+      kanban.informMsg = "Issue loading promise is done!";
     });
+
+  kanban.showAddIssueForm = function() {
+    console.log('CLICKED: Add Issue');
+
+    console.log(kanban.title);
+
+    /*var issue = {
+      Title: 'Some title',
+      AssignedTo: 'codepretty',
+      Description: 'There is a new bug found for the header in Firefox',
+      OpenedBy: 'mopey'
+    }
+
+    issuesFactory.addIssue(issue)
+      .then(function(result) {
+        console.log('addIssue Promise is done!')
+        console.dir(result);
+      })
+      .catch(function(errorMessage) {
+        kanban.errorMsg = errorMessage;
+      })
+      .finally(function() {
+        kanban.informMsg = "Issue added!";
+      });*/
+  }
+
+  kanban.AddIssue = function() {
+    console.log('CLICKED: Add Issue form submit');
+
+    console.log(kanban.title);
+
+    /*var issue = {
+      Title: 'Some title',
+      AssignedTo: 'codepretty',
+      Description: 'There is a new bug found for the header in Firefox',
+      OpenedBy: 'mopey'
+    }
+
+    issuesFactory.addIssue(issue)
+      .then(function(result) {
+        console.log('addIssue Promise is done!')
+        console.dir(result);
+      })
+      .catch(function(errorMessage) {
+        kanban.errorMsg = errorMessage;
+      })
+      .finally(function() {
+        kanban.informMsg = "Issue added!";
+      });*/
+  }
 });

@@ -20,6 +20,7 @@ myApp
       .state('kanban', {
         url: '/',
         controller: 'kanbanController',
+        controllerAs: 'kanban',
         templateUrl: 'boards/kanban.html'
       })
       .state('details', {
