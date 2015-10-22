@@ -6,7 +6,7 @@ var IssueState = {
   Complete: "Complete"
 };
 
-var myApp = angular.module('myApp', ['ui.router']);
+var myApp = angular.module('myApp', ['ui.router', 'myApp.directives']);
 
 myApp
   .config(function($httpProvider) {
