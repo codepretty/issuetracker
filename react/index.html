@@ -9,13 +9,18 @@
   <body>
     <div id="content"></div>
     <script type="text/babel">
+      var data = [
+        { id: 1, title: "Fix all the bugs", description: "There are lots of bugs and all of them needs to be fixed!" },
+        { id: 2, title: "Test React components", description: "How do we test (TDD) react components?" }
+      ];
+
       // boards.js
       var Board = React.createClass({
         render: function() {
           return (
             <div className="board">
               <h1>Kanban board</h1>
-              <Aisle />
+              <Aisle data={ this.props.data } />
             </div>
           );
         }
@@ -24,26 +29,33 @@
       // aisles.js
       var Aisle = React.createClass({
         render: function() {
+          var issues = this.props.data.map(function(issue) {
+            return (
+              <Issue key={ issue.id } title={ issue.title } description={ issue.description } />
+            );
+          });
           return (
             <div className="aisle">
-              <Issue />
+              { issues }
             </div>
           );
         }
       });
 
+      // issues.js
       var Issue = React.createClass({
         render: function() {
           return (
             <div className="issue">
-              Hello, world! I am an issue
+              <h3>{ this.props.title }</h3>
+              <p>{ this.props.description }</p>
             </div>
           );
         }
       });
 
       ReactDOM.render(
-        <Board />,
+        <Board data={ data } />,
         document.getElementById('content')
       );
     </script>
